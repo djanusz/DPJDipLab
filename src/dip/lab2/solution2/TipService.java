@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dip.lab2.solution2;
 
 /**
@@ -9,5 +6,19 @@ package dip.lab2.solution2;
  * @author djanusz
  */
 public class TipService {
+    
+    private TipCalculatorStrategy tipType;
+    
+    public TipService (TipCalculatorStrategy t) {
+        tipType = t;
+    }
+    
+    public TipService() {
+        
+    }
+    
+    public double getGratuity(TipCalculatorStrategy t) {
+        return t.getTip();
+    }
     
 }
