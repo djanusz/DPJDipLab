@@ -28,7 +28,7 @@ public class BaggageTipStrategy implements TipCalculatorStrategy {
 
         baseTipPerBag = 1.00; // set default value
     }
-    public double getTip() {
+    public final double getTip() {
         double tip = 0.00; // always initialize local variables
 
         switch(serviceQuality) {
@@ -66,11 +66,11 @@ public class BaggageTipStrategy implements TipCalculatorStrategy {
         this.bagCount = bagCount;
     }
 
-    public double getBaseTipPerBag() {
+    public final double getBaseTipPerBag() {
         return baseTipPerBag;
     }
 
-    public void setBaseTipPerBag(double baseTipPerBag) {
+    public final void setBaseTipPerBag(double baseTipPerBag) {
         if(baseTipPerBag < 0) {
             throw new IllegalArgumentException(
                     "error: base tip must be greater than or equal to zero");

@@ -13,12 +13,12 @@ public class TipService {
         tipType = t;
     }
     
-    public TipService() {
-        
-    }
+//    public TipService() {
+//        
+//    }
     
-    public double getGratuity(TipCalculatorStrategy t) {
-        return t.getTip();
+    public double getGratuity() {
+        return tipType.getTip();
     }
     
 }

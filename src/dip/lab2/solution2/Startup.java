@@ -16,30 +16,29 @@ import javax.swing.JOptionPane;
  * class. Did it work? Are the low-level instances interchangeable? The DIP
  * requires this.
  *
- * @author your name goes here
+ * @author David Janusz
  */
 public class Startup {
 
-    public static enum ServiceQuality {
-        GOOD, FAIR, POOR
-    };
+//    public static enum ServiceQuality {
+//        GOOD, FAIR, POOR
+//    };
 
     public static void main(String[] args) {
-        TipCalculatorStrategy tip1 =
-                new BaggageTipStrategy(BaggageTipStrategy.ServiceQuality.GOOD, 5);
-        TipCalculatorStrategy tip2 =
-                new BaggageTipStrategy(BaggageTipStrategy.ServiceQuality.GOOD, 4);
-        TipCalculatorStrategy tip3 =
-                new RestaurantTipStrategy(
+        TipCalculatorStrategy tip1 = new BaggageTipStrategy(
+                BaggageTipStrategy.ServiceQuality.GOOD, 5);
+        TipCalculatorStrategy tip2 = new BaggageTipStrategy(
+              BaggageTipStrategy.ServiceQuality.GOOD, 4);
+        TipCalculatorStrategy tip3 = new RestaurantTipStrategy(
                 RestaurantTipStrategy.ServiceQuality.POOR, 10.00);
 
-        TipService ts = new TipService();
+        TipService ts = new TipService(tip1);
 
         NumberFormat nf = NumberFormat.getCurrencyInstance();
 
         //Shouldn't have magic numbers
-        System.out.println("Tip1 = " + nf.format(ts.getGratuity(tip1)));
-        System.out.println("Tip2 = " + nf.format(ts.getGratuity(tip2)));
-        System.out.println("Tip3 = " + nf.format(ts.getGratuity(tip3)));
+        System.out.println("Tip1 = " + nf.format(ts.getGratuity()));
+//        System.out.println("Tip2 = " + nf.format(ts.getGratuity(tip2)));
+//        System.out.println("Tip3 = " + nf.format(ts.getGratuity(tip3)));
     }
 }

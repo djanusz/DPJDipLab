@@ -27,7 +27,7 @@ public class RestaurantTipStrategy implements TipCalculatorStrategy {
         this.setBill(billAmt);
     }
 
-    public double getTip() {
+    public final double getTip() {
         double tip = 0.00; // always initialize local variables
 
         switch(serviceQuality) {
@@ -57,7 +57,7 @@ public class RestaurantTipStrategy implements TipCalculatorStrategy {
         serviceQuality = q;
     }
 
-    public ServiceQuality getServiceQuality() {
+    public final ServiceQuality getServiceQuality() {
         return serviceQuality;
     }
 }
